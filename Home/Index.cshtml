@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h2>Добро пожаловать в систему @User.Identity.Name!</h2>
+        }
+        else
+        {
+            <h2>Добро пожаловать в систему!</h2>
+            <p>
+                Чтобы начать работу с системой необходимо авторизоваться.
+                <li class="justify-content-end">@Html.ActionLink("Авторизоваться.", "Login", "Login")</li>
+            </p>
+        }
+
+
+    </div>
+
+</div>
