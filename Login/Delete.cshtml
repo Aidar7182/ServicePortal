@@ -1,0 +1,29 @@
+﻿@model Portal.Models.Login
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление данных</h2>
+
+
+<div>
+    <h3>Вы уверены что хотите удалить это?</h3>
+    <p><b>Логин: </b>@Html.DisplayFor(model => model.Loginn)</p>
+    <p><b>Пароль: </b>@Html.DisplayFor(model => model.Password)</p>
+    <p><b>Роль: </b>@Html.DisplayFor(model => model.RoleID.UserRole)</p>
+    <p><b>Статус: </b>@Html.DisplayFor(model => model.StatusID.UserStatus)</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+        </div>
+    }
+    <hr />
+    <div>
+        @Html.ActionLink("Назад", "Index")
+    </div>
+</div>
