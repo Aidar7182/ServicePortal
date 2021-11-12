@@ -1,0 +1,478 @@
+﻿@*<div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>*@
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root">
+    <div>
+        <div class="modalBack" id="AuthModalBack" style="display: none;">
+            <div class="modalForm" id="AuthModalForm">
+                <div class="title">Доменная авторизация</div>
+                <div class="modalInput">
+                    <label>Логин</label><br><input placeholder="000000" class="input" id="login" autocomplete="off"><br>
+                    <div class="underLine"></div>
+                </div>
+                <div class="modalInput">
+                    <label>Пароль</label><br><input type="password" placeholder="Доменный пароль" class="input" id="password"><br>
+                    <div class="underLine"></div>
+                </div>
+                <div class="button noselect"><button id="authButton">Войти</button></div>
+                <div class="errors" id="AuthErrors"></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="content example-enter-done">
+            <div class="header" style="margin-top: -50px;"><h3>Шаблоны документов</h3></div>
+            <div class="documents-content" id="documents">
+                <div class="documents-categories">
+                    <div class="category active" id="Все" name="category">Все</div>
+                    <div class="category" id="Образцы заявлений" name="category">Образцы заявлений</div>
+                    <div class="category" id="Образцы служебных записок" name="category">Образцы служебных записок</div>
+                    <div class="category" id="Пакет документов при найме" name="category">Пакет документов при найме</div>
+                    <div class="category" id="Пакет документов при увольнении" name="category">Пакет документов при увольнении</div>
+                    <div class="category" id="Учет рабочего времени" name="category">Учет рабочего времени</div>
+                    <div class="category" id="COVID 19" name="category">COVID 19</div>
+                    <div class="category" id="Командировки" name="category">Командировки</div>
+                    <div class="category" id="Обучение" name="category">Обучение</div>
+                    <div class="category" id="Адаптация новых сотрудников- WELCOME BOOK" name="category">Адаптация новых сотрудников- WELCOME BOOK</div>
+                    <div class="category" id="Библиотека" name="category">Библиотека</div>
+                    <div class="category" id="Корпоративная культура" name="category">Корпоративная культура</div>
+                    <div class="category" id="Бухгалтерия" name="category">Бухгалтерия</div>
+                    <div class="category" id="Процедуры" name="category">Процедуры</div>
+                    <div class="category" id="Безопасность" name="category">Безопасность</div>
+                    <div class="category" id="Реквизиты" name="category">Реквизиты</div>
+                </div>
+
+                <div class="documents-list" id="documents">
+                    <div class="search-document">
+                        <input type="text" placeholder="Поиск" id="searchDocument" name="searchDocument">
+                        <div class="img"><img src="~/Content/media/search.svg" alt="seacrhIMG"></div>
+                    </div>
+                    <div class="documents">
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на прием</div>
+                            <div class="description"></div>
+                            <div>
+                                <a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">
+                                    Скачать
+                                </a>
+                            </div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media//заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на увольнение</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на перевод</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на выход из декретного отпуска</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/папка_новичка.png" alt="IMG"></div>
+                            <div class="title">Перечень документов</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/папка_новичка.png" alt="IMG"></div>
+                            <div class="title">Форма согласия на сбор и обработку персональных данных</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/папка_новичка.png" alt="IMG"></div>
+                            <div class="title">Типовая форма согласия субъекта на обработку данных</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка о возложении обязанностей</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка о переводе сотрудника</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка о переносе даты отпуска</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка о возложении обязанностей</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка об отзыве из отпуска</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка о приеме на работу</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div><div><img src="~/Content/media/увольнение.jfif" alt="IMG"></div>
+                            <div class="title">Форма собеседования при увольнении</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на стажировку без оплаты</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на стажировку с оплатой</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на отпуск</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка об удаленном формате</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка на неоплачиваемую стажировку</div>
+                            <div class="description"></div><div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/значок_служебка.png" alt="IMG"></div>
+                            <div class="title">Служебная записка на оплачиваемую стажировку</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/табель.png" alt="IMG"></div>
+                            <div class="title">Табель учета рабочего времени</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/стоп_корона.png" alt="IMG"></div>
+                            <div class="title">Памятка по Ковид</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/стоп_корона.png" alt="IMG"></div>
+                            <div class="title">Приказ о предотвращении распространения Covid-19</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/командировка.png" alt="IMG"></div>
+                            <div class="title">Памятка командированному сотруднику</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/командировка.png" alt="IMG"></div>
+                            <div class="title">Форма служебного задания (для УРП)</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/командировка.png" alt="IMG"></div>
+                            <div class="title">Форма организации заявки на служебную командировку</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/папка_новичка.png" alt="IMG"></div>
+                            <div class="title">Личный листок</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/заявление_прием_июль_21.doc" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/папка_новичка.png" alt="IMG"></div>
+                            <div class="title">Порядок согласования при найме с УБ</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/Порядок_организации_оформления_приема_сотрудников_2021_Mh93mk3.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/обучение.jfif" alt="IMG"></div>
+                            <div class="title">Программа обучения (шаблон)</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/ПРОГРАММА_ОБУЧЕНИЯ_шаблон__21.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/обучение.jfif" alt="IMG"></div>
+                            <div class="title">Журнал обучения</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/ЖУРНАЛ_ОБУЧЕНИЯ_СОТРУДНИКОВ__2021.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/стоп_корона.png" alt="IMG"></div>
+                            <div class="title">Чек лист по проверке соответствия по мерам предотвращения распространения COVID 19</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/ПРОВЕРОЧНЫЙ_ЛИСТ_COVID_19_меры.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/командировка.png" alt="IMG"></div>
+                            <div class="title">Форма командировочного удостоверения</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/командировочное_удостоверение_rZ3ruxE.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/велком.jfif" alt="IMG"></div>
+                            <div class="title">Лист для ознакомления с ВНД</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/Ориентационная_программа_лист_ознакомления_с_ВНД_YoPfAMG.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/велком.jfif" alt="IMG"></div>
+                            <div class="title">Форма оценки прохождения ИС</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/Форма_оценки_прохождения_ИС.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/увольнение.jfif" alt="IMG"></div>
+                            <div class="title">Обходной лист сотрудника Головного офиса</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/ОБХОДНОЙ_ЛИСТ_ГО.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/увольнение.jfif" alt="IMG"></div>
+                            <div class="title">Обходной лист сотрудника филиала</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/ОБХОДНОЙ_ЛИСТ_ФИЛИАЛЫ_lv.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/увольнение.jfif" alt="IMG"></div>
+                            <div class="title">Акт приема- передачи дел при увольнении</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/АКТ_ПРИЕМА-ПЕРЕДАЧИ_ДЕЛ.docx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/стоп_корона.png" alt="IMG"></div>
+                            <div class="title">Журнал регистрации температуры сотрудников</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/журнал_по_измерению_температуры_июль_21_CQhSdEn.xlsx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637709430101363642-2036965.png" alt="IMG"></div>
+                            <div class="title">Авансовый отчет</div>
+                            <div class="description">Бухгалтерия</div>
+                            <div><a href="~/Content/media/documentVault/637709430593473543-Авансовый отчет.xlsx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/корпоративная_культура.jfif" alt="IMG"></div>
+                            <div class="title">Шаблон презентации</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/documentVault/HALYK_PRES_SHABLON_7.pptx" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/заячвление.png" alt="IMG"></div>
+                            <div class="title">Заявление на аванс под отчёт</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/Заявл.на_аванс_подотчет.xls" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/обучение.jfif" alt="IMG"></div>
+                            <div class="title">Меры безопасности при использовании платежной карты</div>
+                            <div class="description"></div>
+                            <div><a href="~/Content/media/Меры_безопасности_при_использовании_платежной_карты.pdf" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637709430101363642-2036965.png" alt="IMG"></div>
+                            <div class="title">Закупочный акт</div>
+                            <div class="description">Бухгалтерия</div>
+                            <div><a href="~/Content/media/637709431167258848-Закупочный акт.pdf" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637709430101363642-2036965.png" alt="IMG"></div>
+                            <div class="title">Заявление на аванс подотчет</div>
+                            <div class="description">Бухгалтерия</div>
+                            <div><a href="~/Content/media/637709431653327077-Заявл.на_аванс_подотчет.xls" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637714510903509470-4252301.png" alt="IMG"></div>
+                            <div class="title">Осуществление денежных переводов физических лиц по не системно-значимым платежным системам</div>
+                            <div class="description">Процедура "Осуществление денежных переводов физических лиц по не системно-значимым платежным системам в ОАО "Халык Банк Кыргызстан"</div>
+                            <div><a href="~/Content/media/637714511880797155-ПРОЦЕДУРА №12-15 ПО ДЕН СИСТЕМАМ-1.pdf" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637715596956497687-security.png" alt="IMG"></div>
+                            <div class="title">test bezopasnost</div>
+                            <div class="description">test bezopasnost</div>
+                            <div><a href="~/Content/media/637715597406735347-security.png" download="" class="download">Скачать</a></div>
+                        </div>
+                        <div class="document">
+                            <div class="category"></div>
+                            <div><img src="~/Content/media/637714510903509470-4252301.png" alt="IMG"></div>
+                            <div class="title">Инструкция по регистрации доверенного номера</div>
+                            <div class="description">CRM</div>
+                            <div><a href="~/Content/media/637717106097372502-Инструкция.pdf" download="" class="download">Скачать</a></div>
+                            @*<div><a href="~/Content/media/637709430101363642-2036965.png" download="" class="download">Скачать</a></div>*@
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section Scripts{
+    <script type="text/javascript">
+        !function (e) {
+            function r(r) {
+                for (var n, a, i = r[0], l = r[1], c = r[2], p = 0, s = []; p < i.length; p++)a = i[p], Object.prototype.hasOwnProperty.call(o, a) && o[a] && s.push(o[a][0]), o[a] = 0;
+                for (n in l) Object.prototype.hasOwnProperty.call(l, n) && (e[n] = l[n]);
+                for (f && f(r); s.length;)s.shift()();
+                return u.push.apply(u, c || []), t()
+            }
+            function t() {
+                for (var e, r = 0; r < u.length; {
+                    for(var t = u[r], n = !0, i = 1; i<t.length; {
+                    var l = t[i]; 0 !== o[l] && (n = !1)
+                }
+                n && (u.splice(r--, 1), e = a(a.s = t[0]))
+            }
+            return e
+        }
+        var n = {}, o = { 1: 0 }, u = [];
+        function a(r) {
+            if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} };
+            return e[r].call(t.exports, t, t.exports, a), t.l = !0, t.exports
+        }
+        a.e = function (e) {
+            var r = [], t = o[e];
+            if (0 !== t)
+                if (t) r.push(t[2]);
+                else {
+                    var n = new Promise((function (r, n) { t = o[e] = [r, n] }));
+                    r.push(t[2] = n);
+                    var u, i = document.createElement("script"); i.charset = "utf-8", i.timeout = 120, a.nc && i.setAttribute("nonce", a.nc), i.src = function (e) {
+                        return a.p + "~Content/js/" + ({}[e] || e) + "." + { 3: "3bee2fbd" }[e] + ".chunk.js"
+                    }(e);
+                    var l = new Error; u = function (r) {
+                        i.onerror = i.onload = null, clearTimeout(c); var t = o[e];
+                        if (0 !== t) {
+                            if (t) {
+                                var n = r && ("load" === r.type ? "missing" : r.type), u = r && r.target && r.target.src; l.message = "Loading chunk " + e + " failed.\n(" + n + ": " + u + ")", l.name = "ChunkLoadError", l.type = n, l.request = u, t[1](l)
+                            } o[e] = void 0
+                        }
+                    };
+                    var c = setTimeout((function () { u({ type: "timeout", target: i }) }), 12e4); i.onerror = i.onload = u, document.head.appendChild(i)
+                }
+            return Promise.all(r)
+        },
+            a.m = e, a.c = n, a.d = function (e, r, t) { a.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) },
+            a.r = function (e) {
+                "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 })
+            },
+            a.t = function (e, r) {
+                if (1 & r && (e = a(e)), 8 & r) return e;
+                if (4 & r && "object" == typeof e && e && e.__esModule) return e;
+                var t = Object.create(null); if (a.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e)
+                    for (var n in e) a.d(t, n, function (r) { return e[r] }.bind(null, n));
+                return t
+            },
+            a.n = function (e) {
+                var r = e && e.__esModule ? function () {
+                    return e.default
+                } : function () {
+                    return e
+                };
+                return a.d(r, "a", r), r
+            },
+            a.o = function (e, r) {
+                return Object.prototype.hasOwnProperty.call(e, r)
+            },
+            a.p = "/", a.oe = function (e) {
+                throw console.error(e), e
+            };
+        var i = this.webpackJsonphalykportal = this.webpackJsonphalykportal || [], l = i.push.bind(i); i.push = r, i = i.slice();
+        for (var c = 0; c < i.length; c++)r(i[c]);
+        var f = l; t()
+            }([])
+    </script>
+}*@
+       
+
+    @*<div id="wt-sky-root"></div>*@
+
+
+
+

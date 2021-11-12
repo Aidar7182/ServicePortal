@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Portal.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Сотрудники</h2>
+
+<p class="btn btn-default">
+    @Html.ActionLink("Добавить новую запись", "Create", "Employee")
+</p>
+<br />
+<br />
+
+<table id="myTable" class="table table-condensed">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Отдел</th>
+            <th>Должность</th>
+            <th>Номер</th>
+            <th>Email</th>
+            <th>Мобильный</th>
+            <th>WhatsApp </th>
+            <th>Состояние</th>
+            <th>Действие</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.DepartmentID.DepartName)</td>
+                <td>@Html.DisplayFor(modelItem => item.PositionID.PosName)</td>
+                <td>@Html.DisplayFor(modelItem => item.ExtNumberID.Number)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.WhatsUP)</td>
+                <td>@Html.DisplayFor(modelItem => item.StatusID.Status)</td>
+
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", "Employee", new { id = item.ID }, null) |
+                    @Html.ActionLink("Удалить", "Delete", "Employee", new { id = item.ID }, null)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+
+    </script>
+}

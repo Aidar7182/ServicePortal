@@ -1,0 +1,326 @@
+﻿@model Portal.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+<style>
+    /* Demo Background */
+   /* body {
+        background: url(/images/bg/bg-6.png)
+    }*/
+
+    /* Form Style */
+    .form-horizontal {
+        background: #fff;
+        padding-bottom: 40px;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+        .form-horizontal .heading {
+            display: block;
+            font-size: 35px;
+            font-weight: 700;
+            padding: 35px 0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 30px;
+        }
+
+        .form-horizontal .form-group {
+            padding: 0 40px;
+            margin: 0 0 25px 0;
+            position: relative;
+        }
+
+        .form-horizontal .form-control {
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            box-shadow: none;
+            padding: 0 20px 0 45px;
+            height: 40px;
+            transition: all 0.3s ease 0s;
+        }
+
+            .form-horizontal .form-control:focus {
+                background: #e0e0e0;
+                box-shadow: none;
+                outline: 0 none;
+            }
+
+        .form-horizontal .form-group i {
+            position: absolute;
+            top: 12px;
+            left: 60px;
+            font-size: 17px;
+            color: #c8c8c8;
+            transition: all 0.5s ease 0s;
+        }
+
+        .form-horizontal .form-control:focus + i {
+            color: #00b4ef;
+        }
+
+        .form-horizontal .fa-question-circle {
+            display: inline-block;
+            position: absolute;
+            top: 12px;
+            right: 60px;
+            font-size: 20px;
+            color: #808080;
+            transition: all 0.5s ease 0s;
+        }
+
+            .form-horizontal .fa-question-circle:hover {
+                color: #000;
+            }
+
+        .form-horizontal .main-checkbox {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #11a3fc;
+            border-radius: 50%;
+            position: relative;
+            margin: 5px 0 0 5px;
+            border: 1px solid #11a3fc;
+        }
+
+            .form-horizontal .main-checkbox label {
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+            }
+
+                .form-horizontal .main-checkbox label:after {
+                    content: "";
+                    width: 10px;
+                    height: 5px;
+                    position: absolute;
+                    top: 5px;
+                    left: 4px;
+                    border: 3px solid #fff;
+                    border-top: none;
+                    border-right: none;
+                    background: transparent;
+                    opacity: 0;
+                    -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                }
+
+            .form-horizontal .main-checkbox input[type=checkbox] {
+                visibility: hidden;
+            }
+
+                .form-horizontal .main-checkbox input[type=checkbox]:checked + label:after {
+                    opacity: 1;
+                }
+
+        .form-horizontal .text {
+            float: left;
+            margin-left: 7px;
+            line-height: 20px;
+            padding-top: 5px;
+            text-transform: capitalize;
+        }
+
+        .form-horizontal .btn {
+            float: right;
+            font-size: 14px;
+            color: #fff;
+            background: #00b4ef;
+            border-radius: 30px;
+            padding: 10px 25px;
+            border: none;
+            text-transform: capitalize;
+            transition: all 0.5s ease 0s;
+        }
+    }
+</style>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @*<h2>Добро пожаловать в систему.</h2>*@
+    @*<div class="preloader">
+        <div class="preloader__row">
+            <div class="preloader__item"></div>
+            <div class="preloader__item"></div>
+        </div>
+    </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div>
+            <div class="modalBack" id="AuthModalBack" style="display: none;">
+                <div class="modalForm" id="AuthModalForm">
+                    <div class="title">Доменная авторизация</div>
+                    <div class="modalInput">
+                        <label>Логин</label>
+                        <br><input placeholder="000000" class="input" id="login" autocomplete="off">
+                        <br>
+                        <div class="underLine"></div>
+                    </div>
+                    <div class="modalInput">
+                        <label>Пароль</label>
+                        <br>
+                        <input type="password" placeholder="Доменный пароль" class="input" id="password">
+                        <br>
+                        <div class="underLine"></div>
+                    </div>
+                    <div class="button noselect">
+                        <button id="authButton">Войти</button>
+                    </div>
+                    <div class="errors" id="AuthErrors"></div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group col-md-12">
+            <div class="content example-enter-done" id="content">
+                <div class="topline">
+                    <div class="logo">
+                        <img src="@Url.Content("~/Content/images/MainPage.jpg")" alt="img">
+                    </div>
+                    <div class="info">
+                        <div class="title">Приветствуем на внутреннем информационном портале Банка!</div>
+                        <div class="text">
+                            <p>Здесь вы сможете выполнить поиск по сотрудникам Банка, получить информацию об имеющихся информационных системах, а так же ознакомиться с новостями Банка.</p>
+                            <p>Портал непрерывно модернизируется и прорабатывается, поэтому количество удобных функций будет расти. Если у Вас появились идеи по улучшению портала, просим оформить заявку в ServiceDesk.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="employeesBar">
+                    <div class="element">
+                        <div class="title">
+                            <div>Вышедшие с отпуска</div>
+                            <div class="img">
+                                <img src="~/Content/images/icons/calendar.svg" alt="img">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div>
+                                <img src="~/Content/images/icons/box.svg" alt="empty">
+                                <div>Сегодня тут пусто</div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="element">
+                        <div class="title">
+                            <div>Уволенные сотрудники</div>
+                            <div class="img">
+                                <img src="~/Content/images/icons/fired.svg" alt="img">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div>
+                                <img src="~/Content/images/icons/box.svg" alt="empty">
+                                <div>Сегодня тут пусто</div>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="element">
+                        <div class="title">
+                            <div>Сотрудники в отпуске</div>
+                            <div class="img">
+                                <img src="@Url.Content("~/Content/images/icons/beach.svg")" alt="img">
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div>
+                                <img src="~/Content/images/icons/box.svg" alt="empty">
+                                <div>Сегодня тут пусто</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<a>
+            <nav class="nav" id="nav">
+                <a data-link="true" href="" aria-current="page" class="activeNone">
+                    <img id="maxLogo" class="logo" src="~/Content/images/max-logo.jpg" alt="img">
+                    <img id="minLogo" class="logo" src="~/Content/images/mini-logo.png" alt="img">
+                </a>
+                <button class="minimize-button">
+                    <i class="arrow-left"></i>
+                </button>
+                <a class="nav__link activeLink" data-link="true" href="" aria-current="page">
+                    <button id="authButton">Войти</button>
+                </a>
+                <div class="copyright">
+                    <a href="" rel="noreferrer" target="_blank">ОАО "Халык Банк Кыргызстан" 2021</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;version 2.0
+                </div>
+            </nav>
+        </a>*@
+    @*</div>*@
+
+    //<script>!function (e) { function r(r) { for (var n, a, i = r[0], l = r[1], c = r[2], p = 0, s = []; p < i.length; p++)a = i[p], Object.prototype.hasOwnProperty.call(o, a) && o[a] && s.push(o[a][0]), o[a] = 0; for (n in l) Object.prototype.hasOwnProperty.call(l, n) && (e[n] = l[n]); for (f && f(r); s.length;)s.shift()(); return u.push.apply(u, c || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, i = 1; i < t.length; i++) { var l = t[i]; 0 !== o[l] && (n = !1) } n && (u.splice(r--, 1), e = a(a.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function a(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, a), t.l = !0, t.exports } a.e = function (e) { var r = [], t = o[e]; if (0 !== t) if (t) r.push(t[2]); else { var n = new Promise((function (r, n) { t = o[e] = [r, n] })); r.push(t[2] = n); var u, i = document.createElement("script"); i.charset = "utf-8", i.timeout = 120, a.nc && i.setAttribute("nonce", a.nc), i.src = function (e) { return a.p + "static/js/" + ({}[e] || e) + "." + { 3: "3bee2fbd" }[e] + ".chunk.js" }(e); var l = new Error; u = function (r) { i.onerror = i.onload = null, clearTimeout(c); var t = o[e]; if (0 !== t) { if (t) { var n = r && ("load" === r.type ? "missing" : r.type), u = r && r.target && r.target.src; l.message = "Loading chunk " + e + " failed.\n(" + n + ": " + u + ")", l.name = "ChunkLoadError", l.type = n, l.request = u, t[1](l) } o[e] = void 0 } }; var c = setTimeout((function () { u({ type: "timeout", target: i }) }), 12e4); i.onerror = i.onload = u, document.head.appendChild(i) } return Promise.all(r) }, a.m = e, a.c = n, a.d = function (e, r, t) { a.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, a.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, a.t = function (e, r) { if (1 & r && (e = a(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (a.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) a.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, a.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return a.d(r, "a", r), r }, a.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, a.p = "/", a.oe = function (e) { throw console.error(e), e }; var i = this.webpackJsonphalykportal = this.webpackJsonphalykportal || [], l = i.push.bind(i); i.push = r, i = i.slice(); for (var c = 0; c < i.length; c++)r(i[c]); var f = l; t() }([])</script>
+
+    @*//<script src="/js/2.8bc96cad.chunk.js"></script>
+    <script src="~/Content/js/2.8bc96cad.chunk.js"></script>
+    //<script src="/js/main.abf9540d.chunk.js"></script>
+    <script src="~/Content/js/main.abf9540d.chunk.js"></script>*@
+
+    @*<div id="wt-sky-root"></div>*@
+
+}
+else
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-offset-3 col-md-6">
+                        <form class="form-horizontal">
+                            <span class="heading">АВТОРИЗАЦИЯ</span>
+
+
+                            <div class="form-group">
+
+                                @Html.EditorFor(model => model.Loginn, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Loginn, "", new { @class = "text-danger" })
+                                <i class="fa fa-user"></i>
+                            </div>
+
+                            <div class="form-group">
+
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                <i class="fa fa-lock"></i>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">ВХОД</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+}
+
+
+
+
+

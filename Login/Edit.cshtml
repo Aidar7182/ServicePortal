@@ -1,0 +1,58 @@
+﻿@model Portal.Models.Login
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактирование пользователя</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+
+        <div class="col-md-12">
+            <p><b>Логин: </b>@Html.EditorFor(model => model.Loginn, new { htmlAttributes = new { @class = "form-control" } })</p>
+            @Html.ValidationMessageFor(model => model.Loginn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <p><b>Пароль: </b>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })</p>
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+        <div class="form-group">
+            <div class="col-md-12">
+                <p><b>Выберите роль</b><br />@Html.DropDownListFor(m => m.RoleID.ID, Model.LRole, ViewBag.Default as string)</p>
+                @Html.ValidationMessageFor(model => model.RoleID.UserRole, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <p><b>Выберите статус</b><br />@Html.DropDownListFor(m => m.StatusID.ID, Model.LStatus, ViewBag.Default as string)</p>
+                @Html.ValidationMessageFor(model => model.StatusID.UserStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+        </div>
+    </div>
+    }
+    <hr />
+    <div>
+        @Html.ActionLink("Назад", "Index")
+    </div>

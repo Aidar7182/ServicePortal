@@ -1,0 +1,32 @@
+﻿@model Portal.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление данных</h2>
+
+<div>
+    <h3>Вы уверены что хотите удалить это?</h3>
+    <p><b>Фио: </b>@Html.DisplayFor(model => model.FullName)</p>
+    <p><b>Отдел: </b>@Html.DisplayFor(model => model.DepartmentID.DepartName)</p>
+    <p><b>Должность: </b>@Html.DisplayFor(model => model.PositionID.PosName)</p>
+    <p><b>Внутренний номер: </b>@Html.DisplayFor(model => model.ExtNumberID.Number)</p>
+    <p><b>Email: </b>@Html.DisplayFor(model => model.Email)</p>
+    <p><b>Мобильный номер: </b>@Html.DisplayFor(model => model.Phone)</p>
+    <p><b>Whats APP номер: </b>@Html.DisplayFor(model => model.WhatsUP)</p>
+    <p><b>Состояние: </b>@Html.DisplayFor(model => model.StatusID.Status)</p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+        </div>
+    }
+    <hr />
+    <div>
+        @Html.ActionLink("Назад", "Index")
+    </div>
+</div>
