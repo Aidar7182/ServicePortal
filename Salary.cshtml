@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Portal.Models.SalaryLog>
+
+@{
+    ViewBag.Title = "Salary";
+}
+<h1 class="fw-bold">Зарплата</h1>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <div class="row">
+                <div class="col-md-4">
+                    @{
+                        var mounth = "";
+                        var year = 0;
+                        var total = 0;
+                        var salary = 0;
+                        var tax = 0;
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        mounth = item.Mounth;
+                        year = item.Year;
+                        total = item.TotalSum;
+                        salary = item.SalarySum;
+                        tax = item.TaxSum;
+
+                    }
+
+                    <h3> @mounth  @year</h3>
+
+
+                    <h2>@salary</h2>
+                    <h4 class="fa fa-credit-card"> @total</h4>
+
+                    <table class="mt-4 table table-bordered">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th scope="col">НАЧИСЛЕНО</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Оплата по окладу @salary</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="mt-4 table table-bordered">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th scope="col">УДЕРЖАНО</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Налог @tax</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="mt-4 table table-bordered">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th scope="col">ВЫПЛАЧЕНО</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>На крату/в банк @total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-8">
+                    <h2>Расчетные листы</h2>
+                    <table class="mt-4 table table-bordered">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th scope="col">Год</th>
+                                <th scope="col">Месяц</th>
+                                <th scope="col">День</th>
+                                <th scope="col">Начислено</th>
+                                <th scope="col">Выплачено</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Mounth)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Day)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SalarySum)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TotalSum)</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div>
+    @Html.ActionLink("Назад", "Index")
+</div>
